@@ -8,7 +8,7 @@ let express = require('express')
 let app = express()
 
 //Set up server
-let server = app.listen(process.env.PORT || 2000, listen);
+let server = app.listen(process.env.PORT || 5553, listen);
 
 // Callback function confirming server start
 function listen(){
@@ -18,13 +18,13 @@ function listen(){
 }
 
 // Force SSL
-app.use((req, res, next) => {
-  if (req.header('x-forwarded-proto') !== 'https') {
-    res.redirect(`https://${req.header('host')}${req.url}`)
-  } else {
-    next();
-  }
-});
+// app.use((req, res, next) => {
+//   if (req.header('x-forwarded-proto') !== 'https') {
+//     res.redirect(`https://${req.header('host')}${req.url}`)
+//   } else {
+//     next();
+//   }
+// });
 
 // Files for client
 app.use(express.static('public'))
