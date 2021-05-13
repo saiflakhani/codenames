@@ -32,8 +32,6 @@ app.use(express.static('public'))
 // Websocket
 let io = require('socket.io')(server)
 
-io.set('transports', ['websocket']);
-
 // Catch wildcard socket events
 var middleware = require('socketio-wildcard')()
 io.use(middleware)
